@@ -1,15 +1,6 @@
-#include <cstddef> // size_t
-#include <cstring> // strlen, strcpy
+// implementation of String
 
-struct String {
-
-	String(const char* str = "");
-	String(size_t n, char c);
-	~String();
-
-	size_t size;
-	char *str;
-};
+#include "string.hpp"
 
 String::String(const char* s) 
 	: size(strlen(s))
@@ -29,7 +20,12 @@ String::~String() {
 	delete [] str;
 }
 
-/*
-	lesson link:
-	https://stepic.org/lesson/%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%D1%8B-%D0%B8-%D0%B4%D0%B5%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%D1%8B-546/step/10?course=%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B5-C%2B%2B&unit=869
-*/
+void String::append(String& other) {
+	char* old = str;
+	size_t olds = size;
+	size += other.size;
+	str = new char[size + 1];
+	strcpy(str, old);
+	strcpy(str + olds, other.str);
+	delete [] old;
+}
