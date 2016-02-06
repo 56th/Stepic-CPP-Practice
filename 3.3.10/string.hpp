@@ -6,10 +6,10 @@
 struct String {
 	size_t size;
 	char *str;
-	String(const char* str = "");
+	String(char const * str = "");
 	String(size_t, char);
 	~String();
-	void append(String &);
+	void append(String const &);
 };
 
 /*

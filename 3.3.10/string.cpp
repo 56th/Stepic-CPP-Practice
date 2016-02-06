@@ -2,7 +2,7 @@
 
 #include "string.hpp"
 
-String::String(const char* s) 
+String::String(char const * s) 
 	: size(strlen(s))
 	, str(new char[size + 1]) { // C-style strings end w/ '\0', so we need one extra byte
 	strcpy(str, s);
@@ -20,7 +20,7 @@ String::~String() {
 	delete [] str;
 }
 
-void String::append(String& other) {
+void String::append(String const & other) {
 	char* old = str;
 	size_t olds = size;
 	size += other.size;
