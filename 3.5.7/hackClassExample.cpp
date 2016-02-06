@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstddef> // size_t
 
 struct Cls {
     Cls(char c, double d, int i);
