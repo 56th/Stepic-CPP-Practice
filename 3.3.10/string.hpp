@@ -1,5 +1,5 @@
 // declaration of String
-
+#pragma once
 #include <cstddef> // size_t
 #include <cstring> // strlen, strcpy
 
