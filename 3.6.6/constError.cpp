@@ -16,9 +16,10 @@ int main() {
 	// 
 	// int const i = 1;
 	// int* p = 0;
-	// int const ** pp = &p; 	 int** -> int const **! С++ standard forbids this. MSVV:
-	//     						 error: cannot convert from 'int **' to 'const int **'
-	// 							 otherwise we could change data which is constant
+	// int const ** pp = &p;	
+			// int** -> int const **! C++ standard forbids this. MSVC:
+			// error: cannot convert from 'int **' to 'const int **'
+			// otherwise we could change data which is constant
 	// *pp = &i; 
 	// *p = 2;
 	delete [] *m;
