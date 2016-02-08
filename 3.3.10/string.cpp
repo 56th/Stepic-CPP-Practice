@@ -16,6 +16,17 @@ String::String(size_t n, char c) // fill string w/ symbol c
 	str[n] = '\0';
 }
 
+String::String(String const &source) 
+	: size(source.size)
+	, str(new char[size + 1]) {
+		strcpy(str, source.str);
+}
+
+String& String::operator=(String const & source) {
+	if (this != &source) String(source).swap(*this);
+	return *this;
+}
+
 String::~String() {
 	delete [] str;
 }
@@ -28,4 +39,9 @@ void String::append(String const & other) {
 	strcpy(str, old);
 	strcpy(str + olds, other.str);
 	delete [] old;
+}
+
+void String::swap(String& s) {
+	std::swap(size, s.size);
+	std::swap(str, s.str);
 }

@@ -1,5 +1,6 @@
 // declaration of String
 #pragma once
+#include <algorithm> // std::swap
 #include <cstddef> // size_t
 #include <cstring> // strlen, strcpy
 
@@ -8,8 +9,11 @@ struct String {
 	char *str;
 	String(char const * str = "");
 	String(size_t, char);
+	String(String const &); // copy constructor
 	~String();
+	String& operator=(String const &); // assignment operator
 	void append(String const &);
+	void swap(String&);
 };
 
 /*
