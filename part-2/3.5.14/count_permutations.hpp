@@ -1,4 +1,3 @@
-#include <iostream>
 #include <algorithm>
 #include <vector>
 
@@ -12,9 +11,4 @@ size_t count_permutations(Iterator p, Iterator q) {
         n += std::adjacent_find(v.begin(), v.end()) == v.end();
     } while (std::next_permutation(v.begin(), v.end()));
     return n;
-}
-
-int main() {
-    int v[] = { 4, 1, 2, 3, 4 };
-    std::cout << count_permutations(std::begin(v), std::end(v)) << '\n';
 }
