@@ -1,5 +1,11 @@
 #include <gtest/gtest.h>
+#include <vector>
 #include "count_permutations.hpp"
+
+TEST(count_permutations, EmptySequence) {
+    std::vector<int> v;
+    EXPECT_EQ(count_permutations(v.begin(), v.end()), 1);
+}
 
 TEST(count_permutations, SortedSequence) {
     int v[] = { 1, 2, 3, 4, 4 };
