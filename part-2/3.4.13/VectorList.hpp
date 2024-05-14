@@ -11,11 +11,6 @@ private:
     ListT _data;
 public:
     using value_type = T;
-    VectorList() = default;
-    VectorList(VectorList const &) = default;
-    VectorList(VectorList &&) = default;
-    VectorList& operator=(VectorList &&) = default;
-    VectorList& operator=(VectorList const &) = default;
     template<class It>
     void append(It p, It q) {
         if (p != q)
