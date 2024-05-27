@@ -24,9 +24,13 @@ TEST(map_reduce, AsyncExec) {
         auto sum = map_reduce(l.begin(), l.end(), [](int i) {
             return i;
         }, std::plus<int>());
-        auto sum_async = map_reduce(l.begin(), l.end(), [](int i) {
+        auto sum_async_future = map_reduce(l.begin(), l.end(), [](int i) {
             return i;
         }, std::plus<int>(), num_threads);
-        ASSERT_EQ(sum, sum_async) << "num threads: " << num_threads;
+        auto sum_async_thread = map_reduce_thread(l.begin(), l.end(), [](int i) {
+            return i;
+        }, std::plus<int>(), num_threads);
+        ASSERT_EQ(sum, sum_async_future) << "num threads: " << num_threads;
+        ASSERT_EQ(sum, sum_async_thread) << "num threads: " << num_threads;
     }
 }
