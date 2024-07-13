@@ -50,3 +50,13 @@ static_assert(std::is_same<
     Generate<3>::type, 
     IntList<0, 1, 2>
 >::value);
+
+template<int A, int B>
+struct Plus {
+    static int const value = A + B;    
+};
+
+static_assert(std::is_same<
+    Zip<IntList<1, 2, 3, 4, 5>, IntList<1, 3, 7, 7, 2>, Plus>::type, 
+    IntList<2, 5, 10, 11, 7>
+>::value);

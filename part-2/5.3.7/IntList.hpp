@@ -43,3 +43,18 @@ template<int N0>
 struct Generate<0, N0> {
     using type = IntList<>;
 };
+
+// Zip meta function
+
+template<typename IL1, typename IL2, template<int, int> typename BinOp>
+struct Zip {
+    using type = typename IntCons<
+        BinOp<IL1::Head, IL2::Head>::value, 
+        typename Zip<typename IL1::Tail, typename IL2::Tail, BinOp>::type
+    >::type;
+};
+
+template<template<int, int> typename BinOp>
+struct Zip<IntList<>, IntList<>, BinOp> {
+    using type = IntList<>;
+};
