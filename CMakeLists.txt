@@ -23,6 +23,7 @@ add_executable(
   ${PROJECT_NAME}-test
   ${TEST_SOURCES}
 )
+target_include_directories(${PROJECT_NAME}-test PRIVATE "${PROJECT_SOURCE_DIR}")
 target_link_libraries(
   ${PROJECT_NAME}-test
   GTest::gtest_main
